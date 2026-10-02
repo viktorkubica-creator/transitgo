@@ -7,7 +7,6 @@ module.exports = {
     '<rootDir>/backend/services/realtime',
     '<rootDir>/backend/services/identity',
     '<rootDir>/backend/services/payments',
-    '<rootDir>/backend/services/ticketing',
-    '<rootDir>/web'
+    '<rootDir>/backend/services/ticketing'
   ]
 };
