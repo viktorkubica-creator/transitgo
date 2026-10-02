@@ -1,0 +1,155 @@
+openapi: 3.1.0
+info:
+  title: TransitGo Mobile BFF (Training)
+  version: 0.1.0
+  description: |
+    Compact training API for TransitGo. External integrations are mocked.
+    - FR-001..FR-004 Journey search (TRGO-20)
+    - FR-007, FR-009 Departures & nearby stops (TRGO-18)
+    - FR-020 Identity foundation (TRGO-14)
+    - FR-022..FR-024 Payments PoC (TRGO-16)
+servers:
+  - url: http://localhost:3001
+    description: Local dev (journey-planning)
+  - url: http://localhost:3002
+    description: Local dev (realtime)
+  - url: http://localhost:3003
+    description: Local dev (identity)
+  - url: http://localhost:3004
+    description: Local dev (payments)
+paths:
+  /v1/journeys:
+    get:
+      summary: Journey search
+      description: |
+        Implements FR-001, FR-002, FR-003 (TRGO-20).
+        Adapts to OpenTripPlanner (mocked in this training repo).
+      parameters:
+        - in: query
+          name: origin
+          required: true
+          schema: { type: string }
+        - in: query
+          name: destination
+          required: true
+          schema: { type: string }
+        - in: query
+          name: time
+          required: false
+          schema: { type: string, format: date-time }
+        - in: query
+          name: arriveBy
+          required: false
+          schema: { type: boolean, default: false }
+      responses:
+        "200":
+          description: Journey options
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  options:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/JourneyOption'
+  /v1/departures/{stopId}:
+    get:
+      summary: Stop departures
+      description: Implements FR-007 and FR-009 (TRGO-18). GTFS-RT is mocked.
+      parameters:
+        - in: path
+          name: stopId
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Departures at stop
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepartureBoard'
+  /v1/identity/login:
+    post:
+      summary: Stub login
+      description: Implements FR-020 (TRGO-14). Identity is mocked.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email: { type: string, format: email }
+                password: { type: string }
+              required: [email, password]
+      responses:
+        "200":
+          description: Session token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token: { type: string }
+  /v1/payments/intents:
+    post:
+      summary: Create a payment intent (mock)
+      description: |
+        Implements FR-022..FR-024 (TRGO-16). Uses a provider-agnostic adapter with a mock PSP.
+        NOTE: No real PSP named due to RISK-004.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount: { type: integer, minimum: 1, description: Minor units (e.g. cents) }
+                currency: { type: string, enum: [EUR] }
+              required: [amount, currency]
+      responses:
+        "200":
+          description: Mock intent created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentIntent'
+components:
+  schemas:
+    JourneyOption:
+      type: object
+      properties:
+        summary: { type: string }
+        durationMinutes: { type: integer }
+        legs:
+          type: array
+          items:
+            type: object
+            properties:
+              mode: { type: string, enum: [WALK, BUS, TRAM, TROLLEYBUS] }
+              from: { type: string }
+              to: { type: string }
+              startTime: { type: string, format: date-time }
+              endTime: { type: string, format: date-time }
+    DepartureBoard:
+      type: object
+      properties:
+        stopId: { type: string }
+        departures:
+          type: array
+          items:
+            type: object
+            properties:
+              line: { type: string }
+              destination: { type: string }
+              plannedTime: { type: string, format: date-time }
+              expectedInMinutes: { type: integer }
+    PaymentIntent:
+      type: object
+      properties:
+        id: { type: string }
+        clientSecret: { type: string }
+        amount: { type: integer }
+        currency: { type: string }
+        status: { type: string, enum: [requires_action, processing, succeeded] }

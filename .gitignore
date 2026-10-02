@@ -1,0 +1,28 @@
+# Node
+node_modules/
+dist/
+.DS_Store
+.env
+.env.*
+npm-debug.log*
+yarn-error.log
+
+# iOS / Xcode
+DerivedData/
+*.xcuserdatad
+*.xcworkspace/xcuserdata
+
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Misc
+.idea/
+.vscode/
