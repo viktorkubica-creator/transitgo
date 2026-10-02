@@ -28,4 +28,8 @@ describe('Payments extra cases', () => {
     await request(app).get('/healthz').expect(200);
     await request(app).get('/readyz').expect(200);
   });
+  it('product has priceCents', async () => {
+    const r = await request(app).get('/v1/products').expect(200);
+    expect(typeof r.body.items[0].priceCents).toBe('number');
+  });
 });
