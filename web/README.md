@@ -15,4 +15,3 @@ Run
 - `npm run dev -w @transitgo/web`
 - Open http://localhost:3000
 
-CI: trigger re-run after workspace fix on main
