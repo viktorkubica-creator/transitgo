@@ -41,6 +41,14 @@ paths:
           name: arriveBy
           required: false
           schema: { type: boolean, default: false }
+        - in: query
+          name: accessibility
+          required: false
+          schema: { type: string, enum: [step_free, any], default: any }
+        - in: query
+          name: maxWalkMeters
+          required: false
+          schema: { type: integer, minimum: 0 }
       responses:
         "200":
           description: Journey options
@@ -53,6 +61,29 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/JourneyOption'
+        "400":
+          $ref: '#/components/responses/BadRequest'
+  /v1/places/autocomplete:
+    get:
+      summary: Place autocomplete
+      description: Implements TRGO-68 (contract stub for CAP-1).
+      parameters:
+        - in: query
+          name: q
+          required: true
+          schema: { type: string, minLength: 1 }
+      responses:
+        "200":
+          description: Matching places
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Place'
   /v1/departures/{stopId}:
     get:
       summary: Stop departures
@@ -69,6 +100,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DepartureBoard'
+  /v1/nearby:
+    get:
+      summary: Nearby stops
+      description: Implements FR-009 (TRGO-18). Mocked data.
+      parameters:
+        - in: query
+          name: lat
+          required: true
+          schema: { type: number }
+        - in: query
+          name: lng
+          required: true
+          schema: { type: number }
+        - in: query
+          name: radius
+          required: false
+          schema: { type: integer, default: 300 }
+      responses:
+        "200":
+          description: Nearby stops
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Place'
   /v1/identity/login:
     post:
       summary: Stub login
@@ -92,12 +152,67 @@ paths:
                 type: object
                 properties:
                   token: { type: string }
+  /v1/identity/.well-known/jwks.json:
+    get:
+      summary: JWKS
+      description: Public signing keys (mock JWKS) to validate JWTs.
+      responses:
+        "200":
+          description: JWKS
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  keys:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Jwk'
+  /v1/identity/profile:
+    get:
+      summary: Profile
+      description: Returns current user profile from JWT (mock).
+      responses:
+        "200":
+          description: Profile
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sub: { type: string }
+                  email: { type: string }
+                  consents:
+                    type: array
+                    items: { $ref: '#/components/schemas/Consent' }
+  /v1/identity/consents:
+    put:
+      summary: Save consents
+      description: Stores user GDPR consents (mock).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                consents:
+                  type: array
+                  items: { $ref: '#/components/schemas/Consent' }
+      responses:
+        "204":
+          description: Saved
   /v1/payments/intents:
     post:
       summary: Create a payment intent (mock)
       description: |
         Implements FR-022..FR-024 (TRGO-16). Uses a provider-agnostic adapter with a mock PSP.
         NOTE: No real PSP named due to RISK-004.
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          required: false
+          schema: { type: string }
       requestBody:
         required: true
         content:
@@ -115,6 +230,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PaymentIntent'
+  /v1/payments/3ds/simulate:
+    post:
+      summary: Simulate 3DS success
+      description: Moves an intent to succeeded (training only).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                intentId: { type: string }
+              required: [intentId]
+      responses:
+        "204":
+          description: State changed
+  /v1/payments/webhook:
+    post:
+      summary: PSP webhook (mock)
+      description: Verifies HMAC signature.
+      parameters:
+        - in: header
+          name: x-psp-signature
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema: { type: string }
+      responses:
+        "200":
+          description: OK
 components:
   schemas:
     JourneyOption:
@@ -132,6 +280,13 @@ components:
               to: { type: string }
               startTime: { type: string, format: date-time }
               endTime: { type: string, format: date-time }
+    Place:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        lat: { type: number }
+        lon: { type: number }
     DepartureBoard:
       type: object
       properties:
@@ -153,3 +308,32 @@ components:
         amount: { type: integer }
         currency: { type: string }
         status: { type: string, enum: [requires_action, processing, succeeded] }
+    Jwk:
+      type: object
+      properties:
+        kty: { type: string }
+        n: { type: string }
+        e: { type: string }
+        kid: { type: string }
+        alg: { type: string }
+        use: { type: string }
+    Consent:
+      type: object
+      properties:
+        id: { type: string }
+        granted: { type: boolean }
+        timestamp: { type: string, format: date-time }
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code: { type: string }
+                  message: { type: string }
+                  details: { type: object }
