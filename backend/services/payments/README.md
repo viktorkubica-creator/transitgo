@@ -16,4 +16,3 @@ Development
 - Dev: `npm run dev -w @transitgo/payments`
 - Test: `npm test -w @transitgo/payments`
 
-CI: trigger re-run after workspace fix on main
