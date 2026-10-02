@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TransitGo</string>
+    <string name="planner_tab">Plánovač</string>
+    <string name="tickets_tab">Lístky</string>
+    <string name="planner_title">Plánovač ciest</string>
+    <string name="planner_subtitle">Naplánujte si cestu v meste Dunajovia</string>
+    <string name="tickets_title">Peňaženka lístkov</string>
+    <string name="tickets_subtitle">Vaše lístky a predplatné</string>
+</resources>
