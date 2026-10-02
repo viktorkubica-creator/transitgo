@@ -15,3 +15,5 @@ Development
 - Install deps at repo root: `npm install`
 - Dev: `npm run dev -w @transitgo/payments`
 - Test: `npm test -w @transitgo/payments`
+
+CI: trigger re-run after workspace fix on main
