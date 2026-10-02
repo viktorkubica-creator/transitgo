@@ -7,4 +7,7 @@
     <string name="planner_subtitle">Naplánujte si cestu v meste Dunajovia</string>
     <string name="tickets_title">Peňaženka lístkov</string>
     <string name="tickets_subtitle">Vaše lístky a predplatné</string>
+    <string name="departures_title">Odchody</string>
+    <string name="profile_title">Profil</string>
+    <string name="profile_subtitle">Spravujte účet a nastavenia</string>
 </resources>

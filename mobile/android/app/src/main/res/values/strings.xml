@@ -7,4 +7,7 @@
     <string name="planner_subtitle">Plan your trip across Danubia City</string>
     <string name="tickets_title">Ticket Wallet</string>
     <string name="tickets_subtitle">Your tickets and passes</string>
+    <string name="departures_title">Live Departures</string>
+    <string name="profile_title">Profile</string>
+    <string name="profile_subtitle">Manage account and preferences</string>
 </resources>
