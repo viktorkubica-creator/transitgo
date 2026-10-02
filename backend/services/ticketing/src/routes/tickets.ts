@@ -1,6 +1,6 @@
 import express from 'express';
 import { z } from 'zod';
-import { parseOrThrow } from '@transitgo/common/src/validation';
+import { parseOrThrow } from '@transitgo/common';
 import { ticketRepo } from '../repos/ticketRepo';
 
 export const ticketsRouter = express.Router();

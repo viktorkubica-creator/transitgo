@@ -1,7 +1,7 @@
 import express from 'express';
 import { catalogRepo, ordersRepo, refundsRepo } from '../repos/catalogRepo';
 import { z } from 'zod';
-import { parseOrThrow } from '@transitgo/common/src/validation';
+import { parseOrThrow } from '@transitgo/common';
 
 export const productsRouter = express.Router();
 

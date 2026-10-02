@@ -1,6 +1,6 @@
 import express from 'express';
 import { z } from 'zod';
-import { parseOrThrow } from '@transitgo/common/src/validation';
+import { parseOrThrow } from '@transitgo/common';
 import { favouritesRepo, journeysRepo } from '../repos/journeysRepo';
 
 export const savedRouter = express.Router();
@@ -12,7 +12,7 @@ const saveSchema = z.object({
 
 // POST /v1/journeys/saved
 savedRouter.post('/journeys/saved', (req, res) => {
-  const dto = parseOrThrow(saveSchema, req.body);
+  const dto = parseOrThrow(saveSchema, req.body) as z.infer<typeof saveSchema>;
   const j = journeysRepo.save(dto.origin, dto.destination);
   res.status(201).json(j);
 });
@@ -28,7 +28,7 @@ const favSchema = z.object({
   value: z.string().min(1)
 });
 savedRouter.post('/favourites', (req, res) => {
-  const dto = parseOrThrow(favSchema, req.body);
+  const dto = parseOrThrow(favSchema, req.body) as z.infer<typeof favSchema>;
   const f = favouritesRepo.add(dto.type, dto.value);
   res.status(201).json(f);
 });

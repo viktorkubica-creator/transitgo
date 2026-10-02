@@ -1,6 +1,6 @@
 import express from 'express';
 import { z } from 'zod';
-import { parseOrThrow } from '@transitgo/common/src/validation';
+import { parseOrThrow } from '@transitgo/common';
 import { alertsRepo } from '../repos/alertsRepo';
 
 export const alertsRouter = express.Router();
@@ -20,7 +20,7 @@ const schema = z.object({
 
 // POST /v1/alerts (mock)
 alertsRouter.post('/alerts', (req, res) => {
-  const dto = parseOrThrow(schema, req.body);
+  const dto = parseOrThrow(schema, req.body) as z.infer<typeof schema>;
   const created = alertsRepo.add(dto);
   res.status(201).json(created);
 });
