@@ -8,3 +8,10 @@ describe('GET /v1/departures/:stopId', () => {
     expect(Array.isArray(res.body.departures)).toBe(true);
   });
 });
+
+describe('GET /v1/nearby', () => {
+  it('returns nearby stops list', async () => {
+    const res = await request(app).get('/v1/nearby?lat=48.145&lng=17.107&radius=300').expect(200);
+    expect(res.body.items.length).toBeGreaterThan(0);
+  });
+});
