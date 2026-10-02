@@ -25,8 +25,9 @@ Code style
 - TypeScript: prefer explicit types on public APIs, readable names, unit tests for endpoints and adapters.
 - Comments: reference requirement IDs where natural, e.g. `// Implements FR-012 (TRGO-18)`.
 
-CI
-- GitHub Actions builds and tests Node workspaces via `npm -ws run build --if-present` and `npm -ws test --if-present`.
+CI/CD
+- For this training repository, no CI workflows are included.
+- TRGO-10 (CI/CD) is acknowledged as a Platform & DevOps documentation note only.
 
 Scope
 - This repository is a compact training/demo codebase. Integrations are mocked and carry no real secrets.

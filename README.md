@@ -2,7 +2,7 @@ TransitGo – Training Monorepo
 ================================
 
 Stack choice
-- Backend: TypeScript (Node.js 20, Express). Reason: fast to run locally, simple mocks, easy CI.
+- Backend: TypeScript (Node.js 20, Express). Reason: fast to run locally and simple mocks.
 - Web portal: Next.js (stub) – minimal placeholder, wired later in TRGO-13.
 - Mobile: Native (SwiftUI / Jetpack Compose) skeletons on separate PRs (ADR-001).
 - Infra: Terraform skeleton for AWS eu-central-1 (dev/test).
@@ -15,7 +15,7 @@ Architecture overview (high level)
   - Identity & Consent (PSVC-01) – stubbed identity for auth flows [Implements FR-020]
   - Payments Service (PSVC-06) – PSP adapter interface + mock PSP [Implements FR-022..FR-024] (see RISK-004)
   - Notification Service (PSVC-07) – subscription & alert stubs [Implements FR-027..FR-030]
-- Shared: common TypeScript utils, Jest unit tests, CI via GitHub Actions.
+- Shared: common TypeScript utils and Jest unit tests.
 
 Traceability links
 - Jira project TRGO board: https://epsylum.atlassian.net/jira/software/projects/TRGO/boards/2
@@ -47,6 +47,7 @@ Local development
 Notes
 - External integrations are mocked. No secrets are required.
 - Payments PoC intentionally avoids naming a real PSP per RISK-004.
+- TRGO-10 (CI/CD) is tracked as a brief documentation note only; no CI workflows are included in this training repo.
 
 Licensing
 - MIT (training/demo)
