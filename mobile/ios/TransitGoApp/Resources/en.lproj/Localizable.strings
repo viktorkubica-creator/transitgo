@@ -4,3 +4,10 @@
 "planner_subtitle" = "Plan your trip across Danubia City";
 "tickets_title" = "Ticket Wallet";
 "tickets_subtitle" = "Your tickets and passes";
+"departures_title" = "Live Departures";
+"load_departures" = "Load departures";
+"departures_tab" = "Departures";
+"profile_tab" = "Profile";
+"profile_title" = "Profile";
+"profile_subtitle" = "Manage account and preferences";
+"search_journey" = "Search journey";

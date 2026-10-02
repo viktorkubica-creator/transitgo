@@ -4,3 +4,10 @@
 "planner_subtitle" = "Naplánujte si cestu v meste Dunajovia";
 "tickets_title" = "Peňaženka lístkov";
 "tickets_subtitle" = "Vaše lístky a predplatné";
+"departures_title" = "Odchody";
+"load_departures" = "Načítať odchody";
+"departures_tab" = "Odchody";
+"profile_tab" = "Profil";
+"profile_title" = "Profil";
+"profile_subtitle" = "Spravujte účet a nastavenia";
+"search_journey" = "Hľadať spojenie";
