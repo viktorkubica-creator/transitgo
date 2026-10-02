@@ -1,0 +1,5 @@
+# Legacy CODEOWNERS (incorrect/obsolete)
+# NOTE: This file is intentionally outdated for demo purposes.
+/backend/payments/ @web-team
+/app/ @mobile-flutter
+/docs/ @someone-who-left

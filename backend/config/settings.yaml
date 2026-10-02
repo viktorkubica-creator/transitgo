@@ -1,0 +1,7 @@
+apiHost: api.transitgo.cta.local
+sharedApiKey: SHARED-LEGACY-KEY-123
+logRetentionDays: 365  # keep logs for 1 year
+payments:
+  provider: "PayNova Europe"   # provider naming varies across files
+sla:
+  availability: 99.5  # %
