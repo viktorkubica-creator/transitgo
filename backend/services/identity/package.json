@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "@transitgo/common": "workspace:*",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",

@@ -10,6 +10,12 @@ Scope
 
 API
 - `POST /v1/payments/intents` – creates a mock payment intent `{ id, clientSecret, amount, currency, status }`
+- `POST /v1/payments/3ds/simulate` – mark intent succeeded (training)
+- `POST /v1/payments/webhook` – verify HMAC signature
+- `GET /v1/products` – ticket products catalogue
+- `POST /v1/orders` / `GET /v1/orders` – order history
+- `POST /v1/refunds` / `GET /v1/refunds` – refunds
+- Health: `/healthz`, `/readyz`
 
 Development
 - Install deps at repo root: `npm install`

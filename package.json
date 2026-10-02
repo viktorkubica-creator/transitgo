@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "npm -ws run build --if-present",
-    "test": "npm -ws test --if-present",
+    "test": "jest --runInBand",
     "lint": "echo \"No linter configured for training repo\"",
     "ci": "npm run build && npm test"
   },

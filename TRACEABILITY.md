@@ -36,6 +36,11 @@ Traceability
   - Code: `mobile/ios/TransitGoApp/` (views, API client), `mobile/android/app/src/main/java/...` (Compose screens, API client)
   - Confluence: TRGO 5.1 Design System – https://epsylum.atlassian.net/wiki/spaces/TRGO/pages/688146
 
+- FR-012, FR-013, FR-014, FR-015 (CAP-3)
+  - Jira: TRGO-27, TRGO-38, TRGO-39, TRGO-40
+  - Code: `backend/services/ticketing/src/...` (wallet, activation, QR signing/validation)
+  - Confluence: TRGO 6.3 – https://epsylum.atlassian.net/wiki/spaces/TRGO/pages/786450
+
 Notes
 - Endpoint contracts are defined in `api/openapi.yaml`.
 - Code comments reference FR IDs and Jira keys near the implementing endpoints for quick searchability (e.g. `// Implements FR-001 (TRGO-20)`).

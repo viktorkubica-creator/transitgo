@@ -10,6 +10,10 @@ Scope
 API
 - `GET /v1/journeys?origin=...&destination=...&time=...&arriveBy=...`
   - Returns mocked journey options (OpenTripPlanner adapter is mocked)
+- `GET /v1/places/autocomplete?q=...`
+- `POST /v1/journeys/saved` / `GET /v1/journeys/saved`
+- `POST /v1/favourites` / `GET /v1/favourites`
+- Health: `/healthz`, `/readyz`
 
 Development
 - Install deps at repo root: `npm install`

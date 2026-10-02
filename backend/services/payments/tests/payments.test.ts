@@ -45,3 +45,16 @@ describe('3DS simulate & webhook', () => {
       .expect(200);
   });
 });
+
+describe('Products and orders', () => {
+  it('lists products and creates order & refund', async () => {
+    const prods = await request(app).get('/v1/products').expect(200);
+    expect(prods.body.items.length).toBeGreaterThan(0);
+    const order = await request(app).post('/v1/orders').send({ productId: 'prod_single', amount: 150, currency: 'EUR' }).expect(201);
+    expect(order.body.id).toContain('ord_');
+    const refund = await request(app).post('/v1/refunds').send({ orderId: order.body.id, amount: 150 }).expect(201);
+    expect(refund.body.id).toContain('rf_');
+    const orders = await request(app).get('/v1/orders').expect(200);
+    expect(orders.body.items[0].status).toBe('refunded');
+  });
+});
