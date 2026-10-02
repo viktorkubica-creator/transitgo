@@ -32,8 +32,8 @@ Traceability
   - Code: `backend/services/payments/src/psp/PspAdapter.ts`, `backend/services/payments/src/psp/mocks/MockPsp.ts`, `backend/services/payments/src/routes/payments.ts`, `src/services/intents.ts`, `src/psp/IdempotencyStore.ts`
   - Confluence: TRGO 6.4 – https://epsylum.atlassian.net/wiki/spaces/TRGO/pages/819252
 - FR-034 (cross-cutting i18n)
-  - Jira: TRGO-11 “iOS app skeleton…”, TRGO-12 “Android app skeleton…”
-  - Code: `mobile/ios/TransitGoApp/` (views, API client, view models, tests), `mobile/android/app/src/main/java/...` (Compose screens, ViewModels, tests)
+  - Jira: TRGO-11 (iOS), TRGO-12 (Android)
+  - Code: `mobile/ios/TransitGoApp/Models/*, Networking/*, Repositories/*, ViewModels/*, Views/*, Tests/*`; `mobile/android/app/src/main/java/com/transitgo/app/*` (data/model, data/remote, data/repository, ui/*), `app/src/test/*`
   - Confluence: TRGO 5.1 Design System – https://epsylum.atlassian.net/wiki/spaces/TRGO/pages/688146
 
 - FR-012, FR-013, FR-014, FR-015 (CAP-3)

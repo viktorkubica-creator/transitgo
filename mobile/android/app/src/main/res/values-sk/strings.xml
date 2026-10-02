@@ -10,4 +10,8 @@
     <string name="departures_title">Odchody</string>
     <string name="profile_title">Profil</string>
     <string name="profile_subtitle">Spravujte účet a nastavenia</string>
+    <string name="settings_title">Nastavenia</string>
+    <string name="search">Hľadať</string>
+    <string name="origin">Odkiaľ</string>
+    <string name="destination">Kam</string>
 </resources>

@@ -10,4 +10,8 @@
     <string name="departures_title">Live Departures</string>
     <string name="profile_title">Profile</string>
     <string name="profile_subtitle">Manage account and preferences</string>
+    <string name="settings_title">Settings</string>
+    <string name="search">Search</string>
+    <string name="origin">Origin</string>
+    <string name="destination">Destination</string>
 </resources>
