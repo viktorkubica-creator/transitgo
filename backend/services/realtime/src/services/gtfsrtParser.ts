@@ -19,7 +19,7 @@ export function parseMockFeed(json: any): VehicleUpdate[] {
       plannedDepartureEpochMs: Number(e.plannedMs),
       delaySeconds: Number(e.delaySec || 0)
     }))
-    .filter((v) => v.tripId && v.stopId);
+    .filter((v: VehicleUpdate) => v.tripId && v.stopId);
 }
 
 export function toDepartureBoard(feed: VehicleUpdate[], stopId: string) {

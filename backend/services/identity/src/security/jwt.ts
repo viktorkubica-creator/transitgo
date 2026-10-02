@@ -3,7 +3,7 @@ import { PRIVATE_KEY_PEM, JWKS } from './jwks';
 import { Request, Response, NextFunction } from 'express';
 
 export function signToken(sub: string, claims: Record<string, any> = {}, expiresIn = '1h') {
-  const opts: SignOptions = { algorithm: 'RS256', expiresIn, keyid: JWKS.keys[0].kid };
+  const opts: SignOptions = { algorithm: 'RS256', expiresIn: expiresIn as any, keyid: JWKS.keys[0].kid };
   return jwt.sign({ sub, ...claims }, PRIVATE_KEY_PEM, opts);
 }
 

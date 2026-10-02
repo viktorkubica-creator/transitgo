@@ -9,6 +9,9 @@ Scope
 
 API
 - `GET /v1/departures/:stopId` – returns mocked departures
+- `GET /v1/nearby?lat&lng&radius` – nearby stops
+- `GET/POST /v1/alerts` – disruptions/alerts (mock)
+- Health: `/healthz`, `/readyz`
 
 Development
 - Install deps at repo root: `npm install`

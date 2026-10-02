@@ -9,6 +9,12 @@ Scope
 
 API
 - `POST /v1/identity/login` – returns a short-lived mock JWT token
+- `GET /v1/identity/.well-known/jwks.json` – mock JWKS
+- `GET /v1/identity/profile` – current profile
+- `PUT /v1/identity/consents` – save consents
+- `POST /v1/identity/token/refresh` – refresh token
+- `DELETE /v1/identity/account` – account deletion (GDPR)
+- Health: `/healthz`, `/readyz`
 
 Development
 - Install deps at repo root: `npm install`
