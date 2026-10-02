@@ -19,4 +19,3 @@ Development
 Notes
 - Code comments reference FR IDs and Jira keys.
 
-CI: trigger re-run after workspace fix on main
