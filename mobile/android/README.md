@@ -13,3 +13,5 @@ Scope
 Run
 - Open this folder in Android Studio (Giraffe+)
 - Sync Gradle and run on an Android 10+ emulator
+
+CI: trigger re-run after workspace fix on main
