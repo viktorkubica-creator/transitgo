@@ -11,3 +11,13 @@
 "profile_title" = "Profile";
 "profile_subtitle" = "Manage account and preferences";
 "search_journey" = "Search journey";
+"planner_origin_default" = "Main Station";
+"planner_destination_default" = "Tech District";
+"origin" = "Origin";
+"destination" = "Destination";
+"search" = "Search";
+"enter_search" = "Enter search and press Search";
+"no_results" = "No results";
+"settings_title" = "Settings";
+"apply_language" = "Apply";
+"load_tickets" = "Load tickets";

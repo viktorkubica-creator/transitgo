@@ -11,3 +11,13 @@
 "profile_title" = "Profil";
 "profile_subtitle" = "Spravujte účet a nastavenia";
 "search_journey" = "Hľadať spojenie";
+"planner_origin_default" = "Hlavná stanica";
+"planner_destination_default" = "Technologická štvrť";
+"origin" = "Odkiaľ";
+"destination" = "Kam";
+"search" = "Hľadať";
+"enter_search" = "Zadajte vyhľadávanie a stlačte Hľadať";
+"no_results" = "Žiadne výsledky";
+"settings_title" = "Nastavenia";
+"apply_language" = "Použiť";
+"load_tickets" = "Načítať lístky";
