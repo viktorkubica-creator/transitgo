@@ -14,3 +14,5 @@ Development
 - Install deps at repo root: `npm install`
 - Dev: `npm run dev -w @transitgo/realtime`
 - Test: `npm test -w @transitgo/realtime`
+
+CI: trigger re-run after workspace fix on main
