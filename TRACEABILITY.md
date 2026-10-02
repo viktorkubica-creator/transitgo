@@ -33,7 +33,7 @@ Traceability
   - Confluence: TRGO 6.4 – https://epsylum.atlassian.net/wiki/spaces/TRGO/pages/819252
 - FR-034 (cross-cutting i18n)
   - Jira: TRGO-11 “iOS app skeleton…”, TRGO-12 “Android app skeleton…”
-  - Code: `mobile/ios/TransitGoApp/` (views, API client), `mobile/android/app/src/main/java/...` (Compose screens, API client)
+  - Code: `mobile/ios/TransitGoApp/` (views, API client, view models, tests), `mobile/android/app/src/main/java/...` (Compose screens, ViewModels, tests)
   - Confluence: TRGO 5.1 Design System – https://epsylum.atlassian.net/wiki/spaces/TRGO/pages/688146
 
 - FR-012, FR-013, FR-014, FR-015 (CAP-3)

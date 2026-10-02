@@ -5,8 +5,8 @@ Branch `legacy/v1-2025` contains the deprecated 2025 codebase kept for reference
 
 Stack choice
 - Backend: TypeScript (Node.js 20, Express). Reason: fast to run locally and simple mocks.
-- Web portal: Next.js (stub) – minimal placeholder, wired later in TRGO-13.
-- Mobile: Native (SwiftUI / Jetpack Compose) skeletons on separate PRs (ADR-001).
+- Web portal: Next.js app with components and tests (TRGO-13).
+- Mobile: Native (SwiftUI / Jetpack Compose) apps with view models and tests (ADR-001).
 - Infra: Terraform skeleton for AWS eu-central-1 (dev/test).
 - API: OpenAPI 3.1 under `api/openapi.yaml`.
 
@@ -34,7 +34,9 @@ Repository layout (will be added across PRs)
   - realtime/ (PSVC-04) – FR-007, FR-009 (TRGO-18)
   - identity/ (PSVC-01) – FR-020 (TRGO-14)
   - payments/ (PSVC-06) – FR-022..FR-024 (TRGO-16)
+  - ticketing/ (PSVC-05) – FR-012..FR-015 (wallet, QR)
   - notifications/ (PSVC-07) – FR-027..FR-030 (future)
+- backend/packages/common – shared logger, errors, validation, auth middleware
 - mobile/ios – SwiftUI skeleton (TRGO-11)
 - mobile/android – Jetpack Compose skeleton (TRGO-12)
 - web/ – Next.js stub + design tokens (TRGO-13)
@@ -50,6 +52,7 @@ Notes
 - External integrations are mocked. No secrets are required.
 - Payments PoC intentionally avoids naming a real PSP per RISK-004.
 - TRGO-10 (CI/CD) is tracked as a brief documentation note only; no CI workflows are included in this training repo.
+ - Build outputs (e.g., Next.js `.next/`) are ignored via `.gitignore`.
 
 Licensing
 - MIT (training/demo)

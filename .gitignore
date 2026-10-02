@@ -1,6 +1,8 @@
 # Node
 node_modules/
 dist/
+.next/
+coverage/
 .DS_Store
 .env
 .env.*
@@ -11,11 +13,15 @@ yarn-error.log
 DerivedData/
 *.xcuserdatad
 *.xcworkspace/xcuserdata
+*.xcuserstate
+*.xcscmblueprint
 
 # Android / Gradle
 .gradle/
 **/build/
 local.properties
+captures/
+*.iml
 
 # Terraform
 .terraform/
@@ -26,3 +32,4 @@ local.properties
 # Misc
 .idea/
 .vscode/
+web/.next/
