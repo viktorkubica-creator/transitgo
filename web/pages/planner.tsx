@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { searchJourneys, JourneyOption } from '../lib/api';
-import '../styles/tokens.css';
 
 export default function Planner() {
   const [origin, setOrigin] = useState('Main Station');

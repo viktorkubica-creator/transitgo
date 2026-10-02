@@ -1,13 +1,10 @@
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import { PRIVATE_KEY_PEM, JWKS } from './jwks';
 import { Request, Response, NextFunction } from 'express';
 
 export function signToken(sub: string, claims: Record<string, any> = {}, expiresIn = '1h') {
-  return jwt.sign(
-    { sub, ...claims },
-    PRIVATE_KEY_PEM,
-    { algorithm: 'RS256', expiresIn, keyid: JWKS.keys[0].kid }
-  );
+  const opts: SignOptions = { algorithm: 'RS256', expiresIn, keyid: JWKS.keys[0].kid };
+  return jwt.sign({ sub, ...claims }, PRIVATE_KEY_PEM, opts);
 }
 
 export function jwksEndpoint(_req: Request, res: Response) {

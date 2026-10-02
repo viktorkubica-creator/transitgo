@@ -24,8 +24,8 @@ export function parseMockFeed(json: any): VehicleUpdate[] {
 
 export function toDepartureBoard(feed: VehicleUpdate[], stopId: string) {
   const items = feed
-    .filter((v) => v.stopId === stopId)
-    .map((v) => {
+    .filter((v: VehicleUpdate) => v.stopId === stopId)
+    .map((v: VehicleUpdate) => {
       const planned = new Date(v.plannedDepartureEpochMs);
       const expectedMs = v.plannedDepartureEpochMs + v.delaySeconds * 1000;
       const expectedInMinutes = Math.max(0, Math.round((expectedMs - Date.now()) / 60000));

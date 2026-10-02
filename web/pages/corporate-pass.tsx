@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import '../styles/tokens.css';
 
 export default function CorporatePass() {
   return (
