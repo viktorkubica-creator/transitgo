@@ -14,3 +14,5 @@ Development
 - Install deps at repo root: `npm install`
 - Dev: `npm run dev -w @transitgo/identity`
 - Test: `npm test -w @transitgo/identity`
+
+CI: trigger re-run after workspace fix on main
