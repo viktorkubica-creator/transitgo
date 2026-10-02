@@ -13,3 +13,5 @@ Scope
 Run
 - Open `TransitGoApp/Package.swift` in Xcode (SwiftPM)
 - Select an iOS Simulator and Run
+
+CI: trigger re-run after workspace fix on main
