@@ -1,6 +1,8 @@
 TransitGo – Training Monorepo
 ================================
 
+Branch `legacy/v1-2025` contains the deprecated 2025 codebase kept for reference.
+
 Stack choice
 - Backend: TypeScript (Node.js 20, Express). Reason: fast to run locally and simple mocks.
 - Web portal: Next.js (stub) – minimal placeholder, wired later in TRGO-13.
